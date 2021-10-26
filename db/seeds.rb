@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
 require 'json'
@@ -12,18 +7,17 @@ require 'json'
 # building a parsing function
 
 def parse_pokemon(pokemon_entry)
-  pokemon = JSON.parse(open("https://pokeapi.co/api/v2/pokemon/#{pokemon_entry}").read)
-  pokemon
+  raw_json = URI.open("https://pokeapi.co/api/v2/pokemon/#{pokemon_entry}").read
+  JSON.parse(raw_json)
 end
 
 # test if parser works i.e. API call returns the JSON we want of the Pokemon
 
-p parse_pokemon(1)
+bulbasaur = parse_pokemon(1)
 
-# looping through all the pokemon and creating them, adding them to the DB
+# below returns the name of the pokemon as a string
+p bulbasaur["forms"][0]["name"]
 
-
-p bulbasaur
 
 # for i in 1..890 do
 #   pokemon_data = PokeApi.get(id: i)
