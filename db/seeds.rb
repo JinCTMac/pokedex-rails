@@ -4,7 +4,7 @@
 require 'open-uri'
 require 'json'
 
-# building a parsing function
+# 1. building a parsing function
 
 def parse_pokemon(pokemon_entry)
   raw_json = URI.open("https://pokeapi.co/api/v2/pokemon/#{pokemon_entry}").read
@@ -13,28 +13,50 @@ end
 
 # test if parser works i.e. API call returns the JSON we want of the Pokemon
 
-bulbasaur = parse_pokemon(1)
+# bulbasaur = parse_pokemon(1)
 
-# below returns the name of the pokemon as a string
-p bulbasaur["forms"][0]["name"]
-# returns stats as object
-# 0-HP/1-Atk/2-Def... etc
-p bulbasaur["stats"]
-p bulbasaur["stats"][0]["base_stat"]
+# # below returns the name of the pokemon as a string
+# # name
+# p bulbasaur["name"]
+# # number
+# p bulbasaur["id"]
+# # height
+# p bulbasaur["height"]
+# # weight
+# p bulbasaur["weight"]
+# # stats
+# # returns stats as object
+# # 0-HP/1-Atk/2-Def... etc
+# p bulbasaur["stats"]
+# p bulbasaur["stats"][0]["base_stat"]
+# p bulbasaur["stats"][1]["base_stat"]
+# p bulbasaur["stats"][2]["base_stat"]
+# p bulbasaur["stats"][3]["base_stat"]
+# p bulbasaur["stats"][4]["base_stat"]
+# p bulbasaur["stats"][5]["base_stat"]
+# # types
+# p bulbasaur["types"][0]["type"]["name"]
+# p bulbasaur["types"][1]["type"]["name"]
 
+# 2. creating Pokemon and putting them into the db
 
-# for i in 1..890 do
-#   pokemon_data = PokeApi.get(id: i)
-#   Pokemon.create(name: pokemon_data.name,
-#   number: pokemon_data.id,
-#   height: pokemon_data.height,
-#   weight: pokemon_data.weight,
-#   hp: pokemon_data.stats[0,
-#   atk: pokemon_data.stats.attack,
-#   def: pokemon_data.stats.defense,
-#   spatk: pokemon_data.stats.{"special-attack"},
-#   spdef: pokemon_data.stats.{"special-defense"},
-#   speed: pokemon_data.stats.speed,
-#   type_one: pokemon_data.types[0].type.name,
-#   type_two: pokemon_data.types[0].type.name
-# end
+puts "calling api and creating pokemon"
+
+for i in range [1..890]
+  pokemon_entry = parse_pokemon(i)
+  Pokemon.create(
+    name: pokemon_entry["name"],
+    number: pokemon_entry["id"],
+    height: pokemon_entry["height"],
+    weight: pokemon_entry["weight"],
+    hp: pokemon_entry["stats"][0]["base_stat"],
+    atk: pokemon_entry["stats"][1]["base_stat"],
+    def: pokemon_entry["stats"][2]["base_stat"],
+    spatk: pokemon_entry["stats"][3]["base_stat"],
+    spdef: pokemon_entry["stats"][4]["base_stat"],
+    speed: pokemon_entry["stats"][5]["base_stat"],
+    type_one: pokemon_entry["types"][0]["type"]["name"],
+    type_two: pokemon_entry["types"][1]["type"]["name"]
+  )
+  puts "#{pokemon_entry["name"]} created. There are #{Pokemon.count} Pokemon"
+end
