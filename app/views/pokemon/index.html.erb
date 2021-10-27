@@ -1,13 +1,15 @@
 <%= render 'shared/particles' %>
 
-<div class="container">
-  <div class="row flex">
+<div class="container main-container">
+  <div class="row pokemon-row">
   <% @pokemons.each do |pokemon| %>
     <div class="col-sm-8 col-md-8">
       <%= link_to pokemon_path(pokemon) do %>
-      <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-img' %>
+      <div class="pokemon-card">
+        <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-img' %>
         <h2><%= pokemon.name %></h2>
         <p><%= pokemon.number %></p>
+      </div>
       <% end %>
     </div>
   <% end %>
