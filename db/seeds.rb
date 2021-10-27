@@ -27,7 +27,6 @@ end
 bulbasaur = parse_pokemon(890)
 attach_photo(bulbasaur)
 
-
 # 2. creating Pokemon and putting them into the db
 # need to account for some pokemon being monotype
 # below code works
