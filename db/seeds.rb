@@ -5,7 +5,7 @@ require 'open-uri'
 require 'json'
 
 # 0. Cleaning the db
-Pokemon.destroy_all
+# Pokemon.destroy_all
 
 # 1. building a parsing function
 
@@ -14,35 +14,22 @@ def parse_pokemon(pokemon_entry)
   JSON.parse(raw_json)
 end
 
+# 1.1 building an image parsing function
+
+def attach_photo(pokemon)
+  url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{pokemon.id}.png"
+  file = URI.open(url)
+  user.photo.attach(io: file, filename: "#{pokemon.name}.png", content_type: 'image/png')
+end
+
 # test if parser works i.e. API call returns the JSON we want of the Pokemon
 
-# bulbasaur = parse_pokemon(1)
-
-# # below returns the name of the pokemon as a string
-# # name
-# p bulbasaur["name"]
-# # number
-# p bulbasaur["id"]
-# # height
-# p bulbasaur["height"]
-# # weight
-# p bulbasaur["weight"]
-# # stats
-# # returns stats as object
-# # 0-HP/1-Atk/2-Def... etc
-# p bulbasaur["stats"]
-# p bulbasaur["stats"][0]["base_stat"]
-# p bulbasaur["stats"][1]["base_stat"]
-# p bulbasaur["stats"][2]["base_stat"]
-# p bulbasaur["stats"][3]["base_stat"]
-# p bulbasaur["stats"][4]["base_stat"]
-# p bulbasaur["stats"][5]["base_stat"]
-# # types
-# p bulbasaur["types"][0]["type"]["name"]
-# p bulbasaur["types"][1]["type"]["name"]
+bulbasaur = parse_pokemon(890)
+p bulbasaur["sprites"]["front_default"]
 
 # 2. creating Pokemon and putting them into the db
 # need to account for some pokemon being monotype
+# below code works
 
 puts "calling api and creating pokemon"
 
