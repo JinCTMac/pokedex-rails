@@ -1,2 +1,15 @@
-<h1>Pokemon#index</h1>
-<p>Find me in app/views/pokemon/index.html.erb</p>
+<%= render 'shared/particles' %>
+
+<div class="container">
+  <div class="row flex">
+  <% @pokemons.each do |pokemon| %>
+    <div class="col-sm-8 col-md-8">
+      <%= link_to pokemon_path(pokemon) do %>
+      <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-img' %>
+        <h2><%= pokemon.name %></h2>
+        <p><%= pokemon.number %></p>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</div>

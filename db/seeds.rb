@@ -4,6 +4,8 @@
 require 'open-uri'
 require 'json'
 
+# calls pokemon from pokeapi https://pokeapi.co/docs/v2#pokemon
+
 # 0. Cleaning the db
 # Pokemon.destroy_all
 
@@ -16,16 +18,11 @@ end
 
 # 1.1 building an image parsing function
 
-def attach_photo(pokemon)
-  url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{pokemon["id"]}.png"
-  file = URI.open(url)
-  pokemon.photo.attach(io: file, filename: "#{pokemon["name"]}.png", content_type: 'image/png')
-end
-
-# test if parser works i.e. API call returns the JSON we want of the Pokemon
-
-bulbasaur = parse_pokemon(890)
-attach_photo(bulbasaur)
+# def attach_photo(pokemon)
+#   url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{pokemon["id"]}.png"
+#   file = URI.open(url)
+#   pokemon.photo.attach(io: file, filename: "#{pokemon["name"]}.png", content_type: 'image/png')
+# end
 
 # 2. creating Pokemon and putting them into the db
 # need to account for some pokemon being monotype
@@ -36,7 +33,7 @@ puts "calling api and creating pokemon"
 for i in (1..890).to_a do
   pokemon_entry = parse_pokemon(i)
   if pokemon_entry["types"].length > 1
-    Pokemon.create(
+    pokemon = Pokemon.create(
     name: pokemon_entry["name"],
     number: pokemon_entry["id"],
     height: pokemon_entry["height"],
@@ -51,7 +48,7 @@ for i in (1..890).to_a do
     type_two: pokemon_entry["types"][1]["type"]["name"]
   )
   else
-    Pokemon.create(
+    pokemon = Pokemon.create(
       name: pokemon_entry["name"],
       number: pokemon_entry["id"],
       height: pokemon_entry["height"],
@@ -65,6 +62,10 @@ for i in (1..890).to_a do
       type_one: pokemon_entry["types"][0]["type"]["name"]
     )
   end
+
+  url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{pokemon["id"]}.png"
+  file = URI.open(url)
+  pokemon.photo.attach(io: file, filename: "#{pokemon["name"]}.png", content_type: 'image/png')
 
   puts "#{pokemon_entry["name"]} created. There are #{Pokemon.count} Pokemon"
 end
