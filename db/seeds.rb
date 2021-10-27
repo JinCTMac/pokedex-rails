@@ -42,7 +42,7 @@ end
 
 puts "calling api and creating pokemon"
 
-for i in range [1..890]
+for i in (1..890).to_a do
   pokemon_entry = parse_pokemon(i)
   Pokemon.create(
     name: pokemon_entry["name"],
