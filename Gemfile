@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # adding Pokemon-API as gemfile
 gem 'poke-api-v2'
 
+# adding cloudinary as gemfile
+gem 'cloudinary', '~> 1.16.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
