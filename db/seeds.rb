@@ -19,6 +19,7 @@ bulbasaur = parse_pokemon(1)
 p bulbasaur["forms"][0]["name"]
 # returns stats as object
 # 0-HP/1-Atk/2-Def... etc
+p bulbasaur["stats"]
 p bulbasaur["stats"][0]["base_stat"]
 
 
