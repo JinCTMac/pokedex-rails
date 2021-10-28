@@ -1,7 +1,5 @@
 body {
-  background: #cfd6d6;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: #a3a0a0;
 }
 
 .particle {
@@ -10,7 +8,9 @@ body {
 }
 
 .particle-container {
-  height: auto;
+  width: auto;
+  position: fixed;
+  top:0;
 }
 
 @for $i from 1 through 30 {

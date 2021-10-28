@@ -1,9 +1,11 @@
+
+<%= render 'shared/navbar' %>
 <%= render 'shared/particles' %>
 
 <div class="container main-container">
   <div class="row pokemon-row">
   <% @pokemons.each do |pokemon| %>
-    <div class="col-sm-8 col-md-8">
+    <div class="col-sm-8 col-md-8 pokemon-col">
       <%= link_to pokemon_path(pokemon) do %>
       <div class="pokemon-card">
         <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-img' %>
@@ -14,4 +16,8 @@
     </div>
   <% end %>
   </div>
+</div>
+
+<div class="footer">
+  <p>@Jin Mac 2021 - All images, sprites are property of The Pokemon Company and Game Freak.</p>
 </div>
