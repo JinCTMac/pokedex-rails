@@ -8,9 +8,9 @@
     <div class="col-sm-8 col-md-8 pokemon-col">
       <%= link_to pokemon_path(pokemon) do %>
       <div class="pokemon-card">
+        <h2 class="pokemon-number"><%= pokemon.number %></h2>
+        <h2 class="pokemon-name"><%= pokemon.name %></h2>
         <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-img' %>
-        <h2><%= pokemon.name %></h2>
-        <p><%= pokemon.number %></p>
       </div>
       <% end %>
     </div>

@@ -16,7 +16,7 @@
 
 .pokemon-card {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   width: auto;
   margin: 5px auto;
@@ -25,4 +25,14 @@
   border-radius: 8px;
   text-decoration: none;
   opacity: 0.6;
+}
+
+// card spacing/styling
+
+.pokemon-number {
+  margin: 0 20px 0 0;
+}
+
+.pokemon-name {
+  margin: 0 20px 0 0;
 }
