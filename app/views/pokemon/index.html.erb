@@ -2,19 +2,49 @@
 <%= render 'shared/navbar' %>
 <%= render 'shared/particles' %>
 
+<div class="container pokemon-title-container">
+  <h1 class="pokemon-title">Pokémon</h1>
+</div>
+
 <div class="container main-container">
   <div class="row pokemon-row">
-  <% @pokemons.each do |pokemon| %>
-    <div class="col-sm-8 col-md-8 pokemon-col">
-      <%= link_to pokemon_path(pokemon) do %>
-      <div class="pokemon-card">
-        <h2 class="pokemon-number"><%= pokemon.number %></h2>
-        <h2 class="pokemon-name"><%= pokemon.name %></h2>
-        <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-img' %>
+    <% @pokemons.each do |pokemon| %>
+      <div class="col-sm-8 col-md-8 pokemon-col">
+        <%= link_to pokemon_path(pokemon), class: 'pokemon-link' do %>
+        <div class="pokemon-card">
+          <h2 class="pokemon-card-detail"><%= pokemon.number %></h2>
+          <h2 class="pokemon-card-detail"><%= pokemon.name %></h2>
+          <div class="pokemon-card-detail stats-container">
+            <div class="stat-container">
+              <p>HP</p>
+              <p><%= pokemon.hp %></p>
+            </div>
+            <div class="stat-container">
+              <p>Atk</p>
+              <p><%= pokemon.atk %></p>
+            </div>
+            <div class="stat-container">
+              <p>Def</p>
+              <p><%= pokemon.def %></p>
+            </div>
+            <div class="stat-container">
+              <p>SpA</p>
+              <p><%= pokemon.spatk %></p>
+            </div>
+            <div class="stat-container">
+              <p>SpD</p>
+              <p><%= pokemon.spdef %></p>
+            </div>
+            <div class="stat-container">
+              <p>Spe</p>
+              <p><%= pokemon.speed %></p>
+            </div>
+          </div>
+          <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-card-detail' %>
+        </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
 

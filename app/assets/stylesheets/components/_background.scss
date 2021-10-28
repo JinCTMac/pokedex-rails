@@ -16,7 +16,7 @@ body {
 @for $i from 1 through 30 {
   @keyframes particle-animation-#{$i} {
     100% {
-      transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+      transform: translate3d((random(90) * 1vw), (random(90) * 1.2vh), (random(100) * 1px));
       background-attachment: fixed;
     }
   }
