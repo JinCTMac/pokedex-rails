@@ -1,5 +1,7 @@
 body {
-  background: #ecf3f3;
+  background: #cfd6d6;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .particle {
@@ -7,15 +9,21 @@ body {
   border-radius: 50%;
 }
 
+.particle-container {
+  height: auto;
+}
+
 @for $i from 1 through 30 {
   @keyframes particle-animation-#{$i} {
     100% {
       transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+      background-attachment: fixed;
     }
   }
 
   .particle:nth-child(#{$i}) {
     animation: particle-animation-#{$i} 60s infinite;
+    // $size affects size of particles
     $size: random(5) + 5 + px;
     opacity: random(100)/100;
     height: $size;
