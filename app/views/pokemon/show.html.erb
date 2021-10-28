@@ -1,0 +1,18 @@
+
+<div class="container pokemon-show-container">
+  <div class="row pokemon-show-row">
+    <div class="col-sm-8 col-md-8">
+      <h1><%= @pokemon.name %></h1>
+      <div class="pokemon-show-details">
+        <div class="pokemon-img">
+          <%= cl_image_tag @pokemon.photo.key, height: 100, width: 100, crop: :fill, class: 'pokemon-show-img' %>
+        </div>
+        <div class="info-details">
+          <p>Type: <%= @pokemon.type_one %> / <%= @pokemon.type_two if @pokemon.type_two.present? %></p>
+          <p>Height: <%= @pokemon.height %></p>
+          <p>Weight: <%= @pokemon.weight %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
