@@ -7,7 +7,7 @@ class PokemonController < ApplicationController
 
   def show
     # show page for a specific Pokemon
-    @pokemon = Pokemon.find[params[:id]]
+    @pokemon = Pokemon.find(params[:id])
   end
 
   def new

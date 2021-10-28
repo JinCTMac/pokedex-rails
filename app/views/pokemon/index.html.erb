@@ -10,7 +10,7 @@
   <div class="row pokemon-row">
     <% @pokemons.each do |pokemon| %>
       <div class="col-sm-8 col-md-8 pokemon-col">
-        <%= link_to pokemon_path(pokemon), class: 'pokemon-link' do %>
+        <%= link_to pokemon_path(pokemon.id), class: 'pokemon-link' do %>
         <div class="pokemon-card">
           <h2 class="pokemon-card-detail"><%= pokemon.number %></h2>
           <h2 class="pokemon-card-detail"><%= pokemon.name %></h2>
