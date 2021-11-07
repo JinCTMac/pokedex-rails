@@ -11,7 +11,7 @@
     <% @pokemons.each do |pokemon| %>
       <div class="col-sm-8 col-md-8 pokemon-col">
         <%= link_to pokemon_path(pokemon.id), class: 'pokemon-link' do %>
-        <div class="pokemon-card">
+        <div class="pokemon-card hvr-ripple-out">
           <h2 class="pokemon-card-detail"><%= pokemon.number %></h2>
           <h2 class="pokemon-card-detail"><%= pokemon.name %></h2>
           <div class="pokemon-card-detail stats-container">
