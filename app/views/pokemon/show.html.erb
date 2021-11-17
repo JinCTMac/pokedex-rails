@@ -1,33 +1,31 @@
 
-<div id="arrowAnim">
-  <div class="arrowSliding">
-    <div class="arrow"></div>
+<div id="container">
+	<div class="product-details">
+    <h1><%= @pokemon.name %></h1>
+        <p class="information">Weight :<%= @pokemon.weight %></p>
+        <p class="information">Height :<%= @pokemon.height %></p>
+        <p class="information">Type: <%= @pokemon.type_one %> / <%= @pokemon.type_two if @pokemon.type_two.present? %></p>
+    <div class="control">
+      <button class="btn">
+        <span class="price">BACK</span>
+        <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+        <span class="buy">BACK</span>
+      </button>
+    </div>
   </div>
-  <div class="arrowSliding delay1">
-    <div class="arrow"></div>
-  </div>
-  <div class="arrowSliding delay2">
-    <div class="arrow"></div>
-  </div>
-  <div class="arrowSliding delay3">
-    <div class="arrow"></div>
-  </div>
-</div>
 
-<div class="container pokemon-show-container">
-  <div class="row pokemon-show-row">
-    <div class="col-sm-8 col-md-8">
-      <h1><%= @pokemon.name %></h1>
-      <div class="pokemon-show-details">
-        <div class="pokemon-img">
-          <%= cl_image_tag @pokemon.photo.key, height: 100, width: 100, crop: :fill, class: 'pokemon-show-img' %>
-        </div>
-        <div class="info-details">
-          <p>Type: <%= @pokemon.type_one %> / <%= @pokemon.type_two if @pokemon.type_two.present? %></p>
-          <p>Height: <%= @pokemon.height %></p>
-          <p>Weight: <%= @pokemon.weight %></p>
-        </div>
-      </div>
+  <div class="product-image">
+    <%= cl_image_tag @pokemon.photo.key, height: 100, width: 100, crop: :fill, class: 'pokemon-show-img' %>
+    <div class="info">
+      <h2> Description</h2>
+      <ul>
+        <li><strong>HP : </strong><%= @pokemon.hp %></li>
+        <li><strong>Atk :</strong><%= @pokemon.atk %></li>
+        <li><strong>Def : </strong><%= @pokemon.def %></li>
+        <li><strong>SpAtk : </strong><%= @pokemon.spatk %></li>
+        <li><strong>SpDef : </strong><%= @pokemon.spdef %></li>
+        <li><strong>Speed : </strong><%= @pokemon.speed %></li>
+      </ul>
     </div>
   </div>
 </div>

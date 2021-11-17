@@ -16,6 +16,13 @@ def parse_pokemon(pokemon_entry)
   JSON.parse(raw_json)
 end
 
+# bulbasaur = parse_pokemon(1)
+# p bulbasaur["moves"]
+# p bulbasaur["moves"][0]["move"]["name"]
+# p bulbasaur["moves"][0]["version_group_details"][0]["level_learned_at"]
+# p bulbasaur["moves"][0]["version_group_details"][0]["move_learn_method"]["name"]
+
+
 # 1.1 building an image parsing function
 
 # def attach_photo(pokemon)
