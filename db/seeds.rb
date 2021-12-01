@@ -37,7 +37,7 @@ end
 
 puts "calling api and creating pokemon"
 
-for i in (1..890).to_a do
+for i in (1..809).to_a do
   pokemon_entry = parse_pokemon(i)
   if pokemon_entry["types"].length > 1
     pokemon = Pokemon.create(
