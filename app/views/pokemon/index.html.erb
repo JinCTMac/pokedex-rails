@@ -40,7 +40,9 @@
               <p><%= pokemon.speed %></p>
             </div>
           </div>
-          <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-card-detail' %>
+          <% if pokemon.photo.attached? %>
+            <%= cl_image_tag pokemon.photo.key, height: 50, width: 50, crop: :fill, class: 'pokemon-card-detail' %>
+          <% end %>
         </div>
         <% end %>
       </div>
