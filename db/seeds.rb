@@ -6,12 +6,11 @@ require 'json'
 
 # 0. Cleaning the db
 
-puts "cleaning database"
+# puts "cleaning database"
 
-Pokemon.destroy_all
+# Pokemon.destroy_all
 
-puts "database cleaned"
-
+# puts "database cleaned"
 
 # calls pokemon from pokeapi https://pokeapi.co/docs/v2#pokemon
 
@@ -42,7 +41,7 @@ end
 
 puts "calling api and creating pokemon"
 
-for i in (1..809).to_a do
+for i in (1..890).to_a do
   pokemon_entry = parse_pokemon(i)
   if pokemon_entry["types"].length > 1
     pokemon = Pokemon.create(
