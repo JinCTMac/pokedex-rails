@@ -5,11 +5,10 @@
         <p class="information">Weight :<%= @pokemon.weight %></p>
         <p class="information">Height :<%= @pokemon.height %></p>
         <p class="information">Type: <%= @pokemon.type_one %> / <%= @pokemon.type_two if @pokemon.type_two.present? %></p>
-    <div class="control">
+    <div class="control pokemon-btn">
       <button class="btn">
         <span class="price">BACK</span>
-        <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-        <span class="buy">BACK</span>
+        <span><%= link_to "BACK", pokemon_index_path, class: "pokemon-link" %></span>
       </button>
     </div>
   </div>
