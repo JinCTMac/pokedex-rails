@@ -1,11 +1,17 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-# 0. Cleaning the db
-Pokemon.destroy_all
-
 require 'open-uri'
 require 'json'
+
+# 0. Cleaning the db
+
+puts "cleaning database"
+
+Pokemon.destroy_all
+
+puts "database cleaned"
+
 
 # calls pokemon from pokeapi https://pokeapi.co/docs/v2#pokemon
 
