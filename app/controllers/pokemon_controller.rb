@@ -1,7 +1,7 @@
 class PokemonController < ApplicationController
   # Had to call it Pokemons controller to be consistent with Rails convention :sadge:
   def index
-    # index page for all Pokemon - should be a long list just like on Smogon
+    # index page for all Pokemon - should be a long list just like on Smogon/bulbapedia
     @pokemons = Pokemon.all
   end
 
