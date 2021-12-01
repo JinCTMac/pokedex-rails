@@ -70,7 +70,6 @@
 .control {
   position: absolute;
   bottom: 20%;
-  left: 22.8%;
 }
 
 .pokemon-btn {
@@ -100,7 +99,6 @@
 }
 
 .btn span {
-  font-family: 'Farsan', cursive;
   transition: transform 0.3s;
   display: inline-block;
   padding: 10px 20px;
@@ -115,13 +113,13 @@
   margin: 0;
 }
 
-.btn .price {
-  transform: translateX(-10%);
-  padding-right: 15px;
-}
+// .btn .price {
+//   transform: translateX(-10%);
+//   padding-right: 15px;
+// }
 
 .btn .shopping-cart {
-  transform: translateX(-100%);
+  // transform: translateX(-100%);
   position: absolute;
   background: #333;
   z-index: 1;
