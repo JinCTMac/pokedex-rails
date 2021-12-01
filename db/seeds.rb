@@ -7,7 +7,7 @@ require 'json'
 # calls pokemon from pokeapi https://pokeapi.co/docs/v2#pokemon
 
 # 0. Cleaning the db
-# Pokemon.destroy_all
+Pokemon.destroy_all
 
 # 1. building a parsing function
 
